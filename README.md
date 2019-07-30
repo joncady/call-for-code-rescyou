@@ -3,7 +3,7 @@
 
 ## Demo
 
-![RescYou](https://github.com/joncady/call-for-code-rescyou/blob/master/thumbnailRescYou.PNG)
+![RescYou](https://github.com/joncady/call-for-code-rescyou/blob/master/thumbnailRescYou.png)
 
 ## What Our Solution Does
 
