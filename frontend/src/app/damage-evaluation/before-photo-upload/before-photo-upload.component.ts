@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChildren, QueryList, ChangeDetectorRef } from '@
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DamageEvaluationService, PhotoSet } from '../damage-evaluation.service';
 import { UploadBoxComponent } from '../upload-box/upload-box.component';
-import { environment } from 'src/environments/environment';
 import { take } from 'rxjs/operators';
 
 @Component({
