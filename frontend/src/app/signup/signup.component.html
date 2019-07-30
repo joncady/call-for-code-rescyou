@@ -1,0 +1,123 @@
+<div class="container" fxFill fxLayout="column" fxLayoutAlign="start center">
+  <div class="mat-title">Sign up</div>
+  <div fxLayout="column">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-vertical-stepper linear>
+        <mat-step label="Personal Info" formGroupName="personalInfo" [stepControl]="signupForm.get('personalInfo')">
+          <div fxLayout="column">
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input matInput type="text" formControlName="firstName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Last Name</mat-label>
+              <input matInput type="text" formControlName="lastName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Birthdate</mat-label>
+              <input matInput [max]="maxBirthdate" [matDatepicker]="birthdatePicker" formControlName="birthdate"
+                required>
+              <mat-datepicker-toggle matSuffix [for]="birthdatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #birthdatePicker></mat-datepicker>
+            </mat-form-field>
+            <button mat-flat-button type="button" color="primary" [disabled]="signupForm.get('personalInfo').invalid"
+              matStepperNext fxFlexAlign="end">Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Contact Info" formGroupName="contactInfo" [stepControl]="signupForm.get('contactInfo')">
+          <div formGroupName="address" fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-form-field>
+              <mat-label>Address Line 1</mat-label>
+              <input matInput type="text" formControlName="addressLine1" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Address Line 2</mat-label>
+              <input matInput type="text" formControlName="addressLine2">
+            </mat-form-field>
+            <div fxLayout="row">
+              <mat-form-field>
+                <mat-label>Zip</mat-label>
+                <input matInput type="text" formControlName="postalCode" required>
+              </mat-form-field>
+              <mat-form-field class="state-selector">
+                <mat-label>State</mat-label>
+                <select matNativeControl formControlName="state" required>
+                  <option *ngFor="let stateName of addressService.usStates" value="{{stateName}}">{{stateName}}</option>
+                </select>
+              </mat-form-field>
+            </div>
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input matInput type="text" formControlName="city" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-form-field>
+              <mat-label>Cellphone Number</mat-label>
+              <input matInput type="tel" formControlName="phoneNo" [placeholder]="phoneNumberPlaceholder" (change)="formatPhoneNumber()" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <button mat-flat-button type="button" color="primary" matStepperPrevious>Previous</button>
+            <button mat-flat-button type="button" color="primary" [disabled]="signupForm.get('contactInfo').invalid"
+              matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Medical Info" formGroupName="medicalInfo" [stepControl]="signupForm.get('medicalInfo')" optional>
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-form-field class="blood-type-selector">
+              <mat-label>Blood Type</mat-label>
+              <select matNativeControl formControlName="bloodType">
+                <option *ngFor="let bloodType of BLOOD_TYPES" value="{{bloodType}}">{{bloodType}}</option>
+              </select>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <mat-checkbox formControlName="bloodDonor">Blood donor</mat-checkbox>
+              <mat-checkbox formControlName="organDonor">Organ donor</mat-checkbox>
+            </div>
+            <mat-form-field>
+              <mat-label>Medications</mat-label>
+              <textarea matInput formControlName="medications"
+                placeholder="Enter as a comma-separated list."></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Allergies</mat-label>
+              <textarea matInput formControlName="allergies" placeholder="Enter as a comma-separated list."></textarea>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <button mat-flat-button type="button" color="primary" matStepperPrevious>Previous</button>
+            <button mat-flat-button type="button" color="primary" [disabled]="signupForm.get('medicalInfo').invalid"
+              matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Login Details" formGroupName="loginInfo" [stepControl]="signupForm.get('loginInfo')">
+          <div fxLayout="column" fxLayoutAlign="start stretch">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>
+                Confirm Password
+              </mat-label>
+              <input matInput type="password" formControlName="confirmPassword" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <button mat-flat-button type="button" color="primary" matStepperPrevious>Previous</button>
+            <button mat-raised-button type="submit" color="primary" [disabled]="!signupForm.valid"
+              matStepperNext>Submit</button>
+          </div>
+        </mat-step>
+        <mat-step label="Done!">
+          {{ doneMessage }}
+        </mat-step>
+      </mat-vertical-stepper>
+    </form>
+  </div>
+</div>

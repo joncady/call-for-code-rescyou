@@ -1,0 +1,19 @@
+<div class="container" fxFill fxLayout="column" fxLayoutAlign="start center">
+  <div fxFlex="nogrow" class="mat-title">Log in</div>
+  <div fxFlex="grow" fxLayout="column" fxLayoutAlign="space-around center">
+    <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center stretch" (ngSubmit)="onSubmit()">
+      <mat-form-field fxFlex class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field fxFlex class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-checkbox fxFlex fxFlexAlign="center" formControlName="rememberMe">Remember me</mat-checkbox>
+      <button mat-raised-button fxFlex="nogrow" fxFlexAlign="center" fxFlexOffset="10px" type="submit" color="primary"
+        [disabled]="!loginForm.valid">Submit</button>
+      <div class="mat-body text-warn" style="text-align: center;">{{error}}</div>
+    </form>
+  </div>
+</div>

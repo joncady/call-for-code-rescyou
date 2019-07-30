@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="tile-wrapper">
+    <div class="mat-subheading-1" fxLayoutAlign="center">{{ job.address.city }}, {{ job.address.state }}</div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <div class="mat-body-strong">{{ imagePairs[selectedImgIndex].title | titlecase }} - {{ selectedImgLabel | titlecase }}</div>
+      <div class="img-selector-wrapper" fxLayout="row" fxLayoutAlign="end">
+        <div class="selected-img-wrapper"><img class="selected-img" [src]="imagePairs[selectedImgIndex][selectedImgLabel]"></div>
+        <div fxLayout="column" class="image-scroller" fxFlexAlign="stretch">
+          <div fxLayout="row" class="img-pair-wrapper" *ngFor="let set of imagePairs; index as i">
+            <div class="thumbnail-wrapper" (click)="selectImage(i, 'before')">
+              <img class="img-selector" [src]="set.before">
+            </div>
+            <div class="thumbnail-wrapper" (click)="selectImage(i, 'after')">
+              <img class="img-selector" [src]="set.after">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="imagePairs[selectedImgIndex].comments" fxFlexAlign="stretch">
+        <div class="mat-body-strong">Comments:</div>
+        <div class="mat-body">{{ imagePairs[selectedImgIndex].comments }}</div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <div>
+        <div class="mat-body-strong">Top bid:</div>
+        <div class="mat-body">{{ job.topBid.amount | currency }}</div>
+      </div>
+      <button mat-raised-button color="primary" type="button" (click)="openBidDialog()">Bid now</button>
+    </div>
+  </div>
+</div>

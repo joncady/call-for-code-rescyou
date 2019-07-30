@@ -1,0 +1,42 @@
+.selected-img {
+    height: 100px;
+    max-width: 150px;
+}
+
+.selected-img-wrapper {
+    width: 150px;
+}
+
+.image-scroller {
+    overflow-y: scroll;
+    height: 100px;
+}
+
+.img-pair-wrapper {
+    height: 20px;
+}
+
+.img-selector {
+    height: 20px;
+    max-width: 30px;
+}
+
+.mat-subheading-1 {
+    margin-bottom: 0;
+}
+
+.thumbnail-wrapper {
+    width: 30px;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+.tile-wrapper {
+    width: 300px;
+}
+
+@media only screen and (min-width: 600px) {
+    .tile-wrapper {
+        width: 500px;
+    }
+}

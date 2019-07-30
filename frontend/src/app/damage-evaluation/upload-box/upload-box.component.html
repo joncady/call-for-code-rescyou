@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <input [hidden]="!editingTitle" type="text" [formControlName]="titleFormControlName" #title
+    (blur)="closeTitleEditor()" (keydown)="onKey($event)">
+  <div fxLayoutAlign="start center" class="button-like" *ngIf="!editingTitle" (click)="openTitleEditor()">
+    <span class="mat-body-strong">{{title.value || 'Section ' + (uniqueIndex + 1)}} </span>
+    <mat-icon inline="true">edit</mat-icon>
+  </div>
+  <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
+    <div>
+      <input [id]="'image-upload-' + uniqueIndex" type="file" class="image-upload" accept="image/*" #imageInput
+        [formControlName]="imageFormControlName" (change)="loadImgPreview(imageInput);">
+      <label [for]="'image-upload-' + uniqueIndex" class="button-like">
+        <div class="image-upload-button" *ngIf="!file" fxLayout="column"
+          fxLayoutAlign="center center">
+          <div class="mat-display-1" style="margin: 0; color: gray;">+</div>
+          <div class="mat-small" style="color: gray;">Add an Image</div>
+        </div>
+        <div *ngIf="file" class="preview-img-wrapper" fxLayoutAlign="center">
+          <img id="preview-img" [src]="imgPreviewUrl">
+        </div>
+      </label>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-between end">
+      <mat-form-field>
+        <mat-label>Comments (optional)</mat-label>
+        <textarea matInput [formControlName]="commentFormControlName"></textarea>
+      </mat-form-field>
+      <button mat-icon-button aria-label="Delete section" (click)="deleteButtonClick.emit()">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

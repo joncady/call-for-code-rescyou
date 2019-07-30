@@ -1,0 +1,20 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-around stretch">
+  <div class="mat-headline" fxFlexAlign="center">Risk Breakdown by Location</div>
+  <app-map fxFlexAlign="center" (latLngSelected)="onLatLngSelected($event)"></app-map>
+  <div class="container" fxFlexAlign="center">
+    <div *ngIf="breakdown?.overallScore" fxLayout="row" fxLayoutAlign="space-between">
+      <div class="mat-title">Overall</div>
+      <app-score-chip [score]="breakdown?.overallScore / 10"></app-score-chip>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start space-around">
+      <mat-divider [vertical]="true" fxFlexOffSet="10px"></mat-divider>
+      <div fxFlex="grow" fxLayout="column" fxLayoutAlign="start stretch" fxFlexOffset="10px">
+        <div *ngFor="let item of breakdown?.categories | keyvalue" fxLayout="row" fxLayoutAlign="space-between center"
+          fxFlexOffset="10px">
+          <div class="mat-subheading-2">{{item.key | titlecase}}</div>
+          <app-score-chip [score]="item?.value / 10"></app-score-chip>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

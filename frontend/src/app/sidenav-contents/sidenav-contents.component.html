@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="space-between center">
+  <div fxLayout="column" fxLayoutAlign="start start">
+    <img class="navbar-banner" src="assets/images/Long.png" fxFlexAlign="center">
+    <mat-tree class="link-tree" [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node class="node" *matTreeNodeDef="let node" matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        <a mat-button class="mat-body" [routerLink]="node.routerLink" (click)="onLinkClicked()">{{ node.name }}</a>
+      </mat-tree-node>
+      <mat-tree-node class="node" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle [matTreeNodeToggleRecursive]="true"
+          [attr.aria-label]="'toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+          </mat-icon>
+        </button>
+        <button mat-button matTreeNodeToggle [matTreeNodeToggleRecursive]="true"
+          class="mat-body">{{ node.name }}</button>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+  <div class="mat-warn">{{ logoutErrorMessage }}</div>
+  <button mat-raised-button color="primary" (click)="logout()">Log out</button>
+</div>

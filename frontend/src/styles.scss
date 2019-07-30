@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables.scss';
+@import '../node_modules/leaflet/dist/leaflet.css';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.app-bg-primary {
+  background-color: $primary;
+}
+
+.app-bg-dark {
+  background-color: $primary-dark;
+}
+
+.app-bg-darkest {
+  background-color: $primary-darkest;
+}
+
+.app-bg-light {
+  background-color: $primary-light;
+}
+
+.app-bg-accent {
+  background-color: $accent;
+}
+
+.app-bg-warn {
+  background-color: $warn;
+}
+
+.text-warn {
+  color: $warn;
+}
+
+.button-like {
+  cursor: pointer;
+}
+
+.container {
+  padding: 10px;
+}
+
+.flex-filler {
+  flex: 1 1 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.page-wrapper {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}

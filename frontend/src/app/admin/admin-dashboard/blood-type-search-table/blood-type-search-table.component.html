@@ -1,0 +1,23 @@
+<mat-card>
+  <div class="mat-subheading-1">{{ title | titlecase }}</div>
+  <mat-form-field>
+    <mat-label>Blood type</mat-label>
+    <select matNativeControl [(ngModel)]="selectedBloodType" (ngModelChange)="getUsersForSelectedType()">
+      <option *ngFor="let bloodType of bloodTypes" [value]="bloodType">{{ bloodType }}</option>
+    </select>
+  </mat-form-field>
+  <mat-table #dataTable *ngIf="dataSource" [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.user.first_name + ' ' + user.user.last_name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="phoneNumber">
+      <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.phone_number | phoneNumber }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [length]="length" [pageSize]="pageLength" [pageSizeOptions]="pageLengthOptions" [hidePageSize]="true"
+    showFirstLastButtons></mat-paginator>
+</mat-card>

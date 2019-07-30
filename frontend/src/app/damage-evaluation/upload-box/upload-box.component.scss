@@ -1,0 +1,30 @@
+input {
+    cursor: text;
+}
+
+.image-upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.image-upload-button {
+    height: 90px;
+    width: 90px;
+    border: 2px dotted gray;
+    border-radius: 5px;
+}
+
+.preview-img-wrapper {
+    height: 90px;
+    width: 90px;
+    border-radius: 5px; 
+}
+
+#preview-img {
+    height: 90px;
+    border-radius: 5px;
+}

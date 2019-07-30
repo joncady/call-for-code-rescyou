@@ -1,0 +1,31 @@
+table, th, td {
+    border-bottom: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+table {
+    margin-bottom: 0 !important;
+}
+
+td {
+    height: 30px;
+}
+
+td.phone-no-cell {
+    text-align: right;
+}
+
+.name-input {
+    max-width: 150px;
+}
+
+.tel-input {
+    max-width: 100px;
+}
+
+.add-new-button {
+    color: gray;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+    cursor: pointer;
+}

@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@import './palettes.scss';
+
+$primary: mat-color($app-primary);
+$primary-dark: mat-color($app-primary, 700);
+$primary-darkest: mat-color($app-primary, 900);
+$primary-light: mat-color($app-primary, lighter);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);

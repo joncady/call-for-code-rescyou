@@ -1,0 +1,47 @@
+<div [formGroup]="formGroup" class="container" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <input [hidden]="!editingTitle" type="text" [formControlName]="titleFormControlName" #title
+      (blur)="closeTitleEditor()" (keydown)="onKey($event)">
+    <div fxLayoutAlign="start center" class="button-like" *ngIf="!editingTitle" (click)="openTitleEditor()">
+      <span class="mat-body-strong">{{title.value || 'Section ' + (uniqueIndex + 1)}} </span>
+      <mat-icon inline="true">edit</mat-icon>
+    </div>
+    <button mat-icon-button aria-label="Delete section" (click)="deleteButtonClick.emit()">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  </div>
+  <div fxLayout="column">
+    <div fxFill fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="mat-body">Before</div>
+        <div class="image-upload-button" fxLayout="column"
+          fxLayoutAlign="center center">
+          <div class="mat-display-1" style="margin: 0; color: gray;">+</div>
+          <div class="mat-small" style="color: gray;">Add an Image</div>
+        </div>
+        <div class="preview-img-wrapper" fxLayoutAlign="center">
+          <img class="preview-img" [src]="beforeImgPreviewUrl">
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="mat-body">After</div>
+        <input [id]="'after-image-upload-' + uniqueIndex" type="file" class="image-upload" accept="image/*"
+          #afterImgInput [formControlName]="afterImgFormControlName" (change)="loadAfterImgPreview(afterImgInput)">
+        <label [for]="'after-image-upload-' + uniqueIndex" class="button-like">
+          <div class="image-upload-button" *ngIf="!afterImgInput.files || !afterImgInput.files[0]" fxLayout="column"
+            fxLayoutAlign="center center">
+            <div class="mat-display-1" style="margin: 0; color: gray;">+</div>
+            <div class="mat-small" style="color: gray;">Add an Image</div>
+          </div>
+          <div *ngIf="afterImgInput.files && afterImgInput.files[0]" class="preview-img-wrapper" fxLayoutAlign="center">
+            <img class="preview-img" [src]="afterImgPreviewUrl">
+          </div>
+        </label>
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Comments (optional)</mat-label>
+      <textarea matInput [formControlName]="commentFormControlName"></textarea>
+    </mat-form-field>
+  </div>
+</div>

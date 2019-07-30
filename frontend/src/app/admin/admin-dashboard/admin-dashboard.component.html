@@ -1,0 +1,8 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+  <div class="mat-title">Admin</div>
+  <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="10px" fxLayoutAlign="start center"
+    fxLayoutAlign.gt-sm="center start">
+    <app-blood-type-search-table [title]="'Blood Donors'" [filter]="bloodDonorFilter"></app-blood-type-search-table>
+    <app-blood-type-search-table [title]="'Organ Donors'" [filter]="organDonorFilter"></app-blood-type-search-table>
+  </div>
+</div>

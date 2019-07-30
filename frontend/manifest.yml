@@ -1,0 +1,8 @@
+applications:
+-  name: disaster-support-app
+   buildpack: staticfile_buildpack
+   host: call-for-code-app
+   memory: 256M
+   path: dist
+   root: dist
+   pushstate: enabled

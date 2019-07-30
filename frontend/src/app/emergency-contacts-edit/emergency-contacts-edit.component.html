@@ -1,0 +1,33 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <h2 class="mat-title">Update Emergency Contacts</h2>
+  <form [formGroup]="contactsForm" fxLayout="column" fxLayoutGap="10px" (ngSubmit)="onSubmit()">
+    <table formArrayName="contacts">
+      <tr>
+        <th class="mat-subheading-1">Name</th>
+        <th class="mat-subheading-1">Phone #</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let control of contacts.controls; index as i" [formGroup]="control">
+        <td class="mat-body">
+          <input class="name-input" type="text" required formControlName="name">
+        </td>
+        <td class="mat-body phone-no-cell">
+          <input class="tel-input" type="tel" required formControlName="phoneNumber">
+        </td>
+        <td>
+            <button mat-icon-button color="warn" (click)="contacts.removeAt(i)"><mat-icon>delete</mat-icon></button>
+        </td>
+      </tr>
+    </table>
+    <div class="add-new-button mat-subheading-1" fxLayout="row" fxLayoutAlign="center center" (click)="addNewContact()">
+        Add new +
+    </div>
+    <div class="mat-body text-warn" fxLayout="row" fxLayoutAlign="center center">
+        {{ errorMessage }}
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <a mat-raised-button color="warn" [routerLink]="['..']">Cancel</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactsForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>

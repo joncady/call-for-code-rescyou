@@ -1,0 +1,11 @@
+<div fxLayout="column" class="page-wrapper">
+  <app-toolbar fxFlex="nogrow" (navButtonToggle)="sidenav.toggle()"></app-toolbar>
+  <mat-sidenav-container class="sidenav-container" fxFlex="grow">
+    <mat-sidenav class="sidenav" position="end" #sidenav>
+      <app-sidenav-contents (linkClicked)="sidenav.close()"></app-sidenav-contents>
+    </mat-sidenav>
+    <div class="content-wrapper" fxFill>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+</div>

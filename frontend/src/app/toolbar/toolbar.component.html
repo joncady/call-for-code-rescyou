@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <div *ngIf="userService.userIsLoggedIn()" fxFill fxLayout="row" fxLayoutAlign="start center">
+    <a mat-button [routerLink]="['/home']">
+      <img class="toolbar-logo" src="assets/images/Short Trans.png">
+    </a>
+    <div class="flex-filler"></div>
+    <button mat-icon-button type="button" (click)="navButtonToggle.emit()"><mat-icon>menu</mat-icon></button>
+  </div>
+  <div *ngIf="!userService.userIsLoggedIn()" fxFill fxLayout="row" fxLayoutAlign="start center">
+    <a *ngIf="router.url !== '/'" mat-button [routerLink]="['/']">
+      <img class="toolbar-logo" src="assets/images/Short Trans.png">
+    </a>
+    <div class="flex-filler"></div>
+    <a mat-button *ngIf="router.url !== '/login'" [routerLink]="['/login']">Log in</a>
+    <a mat-button *ngIf="router.url !== '/signup'" [routerLink]="['/signup']">Sign up</a>
+  </div>
+</mat-toolbar>

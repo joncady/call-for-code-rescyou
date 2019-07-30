@@ -1,0 +1,22 @@
+<div class="container" fxLayoutAlign="center">
+    <div class="card-wrapper" fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px" fxFlexAlign="center">
+        <mat-card class="button-like" [routerLink]="['../risk-breakdown']" fxLayout="row" fxLayoutAlign="space-around end"
+          role="region">
+          <div>
+            <div class="mat-title">Your disaster risk score</div>
+            <div class="mat-subheading-2" fxLayout="row" fxLayoutAlign="start center">View details <mat-icon>chevron_right
+              </mat-icon>
+            </div>
+          </div>
+          <app-score-chip fxFlex [score]="score / 10"></app-score-chip>
+        </mat-card>
+        <mat-card class="button-like" [routerLink]="['../damage-eval/before-upload']">
+          <div class="mat-title">No photos uploaded</div>
+          <div class="mat-subheading-2" fxLayout="row" fxLayoutAlign="start center">Add photos of your property <mat-icon>
+              chevron_right
+            </mat-icon>
+          </div>
+        </mat-card>
+      </div>
+      
+</div>

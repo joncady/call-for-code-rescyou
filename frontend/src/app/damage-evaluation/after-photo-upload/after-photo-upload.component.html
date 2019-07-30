@@ -1,0 +1,14 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+  <div class="mat-title">Damage Assessment Form</div>
+  <form fxFill [formGroup]="form" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+    <div *ngIf="uploadForms.controls.length === 0" fxLayout="row" fxLayoutAlign="center"><a mat-raised-button
+        color="primary" [routerLink]="['..', 'before-upload']">Upload before photos</a></div>
+    <div *ngFor="let control of uploadForms.controls; index as i">
+      <app-multi-upload-box [formGroup]="control" [uniqueIndex]="i" [beforeImage]="beforeImages[i]">
+      </app-multi-upload-box>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-raised-button color="primary" type="submit" fxFlex="nogrow" fxFlexAlign="center"
+      [disabled]="form.invalid || uploadForms.controls.length === 0">Submit</button>
+  </form>
+</div>

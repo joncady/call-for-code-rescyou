@@ -1,0 +1,13 @@
+table, th, td {
+    border-bottom: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+td {
+    min-width: 150px;
+    height: 25px;
+}
+
+td.phone-no-cell {
+    text-align: right;
+}

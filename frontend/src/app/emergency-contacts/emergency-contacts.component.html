@@ -1,0 +1,37 @@
+<!--
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+    <div class="mat-title">Emergency Contacts</div>
+    <table mat-table [dataSource]="emergencyContacts">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let contact">{{ contact.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <th mat-cell *matCellDef="let contact">{{ contact.phoneNumber | phoneNumber }}</th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+  </table>
+  <a mat-raised-button [routerLink]="['edit']" color="primary">Edit</a>
+</div>
+-->
+<div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <h2 class="mat-title">Emergency Contacts</h2>
+  <table>
+    <tr>
+      <th class="mat-subheading-1">Name</th>
+      <th class="mat-subheading-1">Phone #</th>
+    </tr>
+    <tr *ngFor="let contact of emergencyContacts$ | async">
+      <td class="mat-body">
+        {{contact.name}}
+      </td>
+      <td class="mat-body phone-no-cell">
+        {{contact.phoneNumber}}
+      </td>
+    </tr>
+  </table>
+  <a mat-raised-button color="primary" [routerLink]="['edit']">Edit</a>
+</div>

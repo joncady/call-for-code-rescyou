@@ -1,0 +1,33 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start center">
+  <div class="tile-wrapper">
+    <mat-divider></mat-divider>
+    <div class="mat-subheading-1" fxLayoutAlign="center">{{ job.address.city }}, {{ job.address.state }}</div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="mat-body-strong">{{ imagePairs[selectedImgIndex].title | titlecase }} - {{ selectedImgLabel | titlecase }}</div>
+        <div fxLayout="row">
+          <div class="selected-img-wrapper"><img class="selected-img" [src]="imagePairs[selectedImgIndex][selectedImgLabel]"></div>
+          <div fxLayout="column" class="image-scroller">
+            <div fxLayout="row" class="img-pair-wrapper" *ngFor="let set of imagePairs; index as i">
+              <div class="thumbnail-wrapper" (click)="selectImage(i, 'before')">
+                <img class="img-selector" [src]="set.before">
+              </div>
+              <div class="thumbnail-wrapper" (click)="selectImage(i, 'after')">
+                <img class="img-selector" [src]="set.after">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div style="text-align: center;">
+          <div class="mat-subheading-1">Top bid:</div>
+          <div class="mat-subheading-2">{{ job.topBid.amount | currency }}</div>
+        </div>
+        <a mat-raised-button color="primary" type="button" [routerLink]="['..', 'job', job.id]">Details</a>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+</div>

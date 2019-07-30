@@ -1,0 +1,22 @@
+#map {
+    height: 150px;
+}
+
+#map-wrapper {
+    width: 300px;
+    border: 2px solid lightgray;
+    border-radius: 2px;
+}
+
+#map-progress-spinner {
+    margin: auto auto;
+}
+
+@media only screen and (min-width: 600px) {
+    #map {
+        height: 300px;
+    }
+    #map-wrapper {
+        width: 550px;
+    }
+}

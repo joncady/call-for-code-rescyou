@@ -1,0 +1,21 @@
+<div class="container" fxLayoutAlign="center">
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+    <div class="mat-title" style="text-align: center;">Before Photo Upload</div>
+    <div class="mat-body" style="text-align: center;">Take at least one photo of every significant area of your
+      property.
+      Feel free to add or remove
+      sections as needed.</div>
+    <form [formGroup]="form" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10px" (ngSubmit)="onSubmit()">
+      <div *ngFor="let formGroup of uploadForms.controls; index as i">
+        <app-upload-box #upload [formGroup]="formGroup" (deleteButtonClick)="uploadForms.removeAt(i)" [uniqueIndex]="i">
+        </app-upload-box>
+        <mat-divider></mat-divider>
+      </div>
+      <div class="add-row-button button-like" fxLayout="row" fxLayoutAlign="center center" (click)="addNewSection()">
+        <div class="mat-title" style="color: gray; margin: 0;">Add a section +</div>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="primary" type="submit" fxFlex="nogrow" fxFlexAlign="center" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+</div>

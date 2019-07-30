@@ -1,0 +1,6 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="mat-title" fxFlexAlign="center">Jobs Available</div>
+    <div *ngFor="let job of jobs$ | async">
+        <app-job-summary [job]="job"></app-job-summary>
+    </div>
+</div>

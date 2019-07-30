@@ -1,0 +1,7 @@
+<div fxLayout="row" fxLayoutAlign="center center" id="map-wrapper">
+  <mat-spinner fxFlex="nogrow" id="map-progress-spinner" *ngIf="options === undefined"></mat-spinner>
+  <div fxFlex="grow" *ngIf="options !== undefined" id="map" leaflet [leafletOptions]="options"
+    (leafletClick)="onLeafletClick($event)">
+    <div *ngIf="markerLayer" [leafletLayer]="markerLayer"></div>
+  </div>
+</div>
