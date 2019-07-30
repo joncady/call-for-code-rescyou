@@ -1,7 +1,7 @@
 # RescYou
 ### An all-in-one dashboard to help you and your close ones recover from a disaster
 
-## Demo
+## Demo (Click to watch)
 
 [![RescYou](https://github.com/joncady/call-for-code-rescyou/blob/master/thumbnailRescYou.png)](https://youtu.be/UNO1UrO4zlw)
 
