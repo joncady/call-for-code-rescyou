@@ -14,6 +14,6 @@ pytz==2019.1
 requests==2.22.0
 six==1.12.0
 sqlparse==0.2.4
-urllib3==1.25.3
+urllib3==1.26.5
 watson-developer-cloud==2.10.1
 websocket-client==0.48.0
