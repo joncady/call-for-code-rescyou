@@ -26,7 +26,7 @@
     "@asymmetrik/ngx-leaflet": "^6.0.1",
     "leaflet": "^1.5.1",
     "libphonenumber-js": "^1.7.21",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-click-outside": "^4.0.0",
     "ngx-cookie-service": "^2.2.0",
     "rxjs": "~6.4.0",
